@@ -1,0 +1,72 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>Tower of Hanoi</title>  
+</head>  
+<body>  
+<div id="game">  
+  <!-- 这里放置三个柱子 -->  
+  <div class="peg" id="peg1"></div>  
+  <div class="peg" id="peg2"></div>  
+  <div class="peg" id="peg3"></div>  
+  
+  <!-- 游戏控制 -->  
+  <select id="disksCount">  
+  </select>  
+  <button id="start">Start</button>  
+  <button id="pause">Pause</button>  
+  <button id="resume">Resume</button>  
+  <select id="timePeriod">  
+  </select>  
+</div>  
+  
+<script>  
+  // 假设我们有一个函数来处理移动磁盘的逻辑  
+  function moveDisk(fromPeg, toPeg) {  
+    // 这里添加动画逻辑和磁盘移动的代码  
+    // 例如使用requestAnimationFrame或setTimeout来实现动画  
+  }  
+  
+  // Tower of Hanoi的递归算法  
+  function hanoi(n, source, target, auxiliary) {  
+    if (n > 0) {  
+      // 1. 将n-1个盘子从源柱子移动到辅助柱子  
+      hanoi(n - 1, source, auxiliary, target);  
+      // 2. 将第n个盘子从源柱子移动到目标柱子  
+      moveDisk(source, target);  
+      // 3. 将n-1个盘子从辅助柱子移动到目标柱子  
+      hanoi(n - 1, auxiliary, target, source);  
+    }  
+  }    
+  initGame();  
+</script>
+  
+</body>  
+</html>
+
+<style>  
+  #game {  
+    display: flex;  
+    justify-content: space-around;  
+    align-items: flex-start;  
+    height: 500px;  
+  }  
+    
+  .peg {  
+    width: 20px;  
+    height: 400px;  
+    background-color: brown;  
+    position: relative;  
+    margin-bottom: 50px;  
+  }  
+  .disk {  
+    width: 18px;  
+    height: 20px;  
+    background-color: blue;  
+    position: absolute;  
+    bottom: 0;  
+    left: 1px;  
+  }  
+</style>
